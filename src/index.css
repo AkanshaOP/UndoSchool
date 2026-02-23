@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-background text-textMain antialiased font-sans flex flex-col min-h-screen text-gray-800;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading tracking-tight;
+    }
+}
+
+@layer utilities {
+    .glass {
+        @apply bg-white/70 backdrop-blur-md border border-white/20;
+        box-shadow: 0 8px 32px 0 rgba(107, 70, 193, 0.1);
+    }
+
+    .glass-card {
+        @apply bg-white/90 backdrop-blur-sm shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-300;
+    }
+
+    .gradient-text {
+        @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+    }
+
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    .transform-style-3d {
+        transform-style: preserve-3d;
+    }
+
+    .emoji-3d {
+        filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15));
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c3b5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6B46C1;
+}
