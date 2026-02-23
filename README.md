@@ -1,5 +1,8 @@
 # UndoSchool - Frontend Developer Assignment
 
+## 🚀 Live Demo
+[https://AkanshaOP.github.io/UndoSchool/](https://AkanshaOP.github.io/UndoSchool/)
+
 ## ✨ Enhancements & Creative Additions
 1. **Dynamic Micro-Animations**: Used `framer-motion` for smooth layout transitions, floating visuals in the Hero section, and active states in the age filter.
 2. **Glassmorphism**: Added `glass` classes to the Navigation bar for a premium, sleek feel blurring the content seamlessly.
