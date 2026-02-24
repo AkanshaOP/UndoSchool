@@ -38,30 +38,6 @@ const webinars = [
         image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600',
         badge: 'UPCOMING',
     },
-    {
-        id: 4,
-        label: 'CODING',
-        title: 'Intro to Game Development for Kids',
-        description: 'Create simple interactive games using block-based and beginner-friendly tools.',
-        date: 'February, 22nd',
-        time: '16:00 – 17:00',
-        teacher: 'Amit Shah',
-        teacherRole: 'Instructor',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600',
-        badge: 'UPCOMING',
-    },
-    {
-        id: 5,
-        label: 'CREATIVE ARTS',
-        title: 'Finger Painting & Colors',
-        description: 'Hands-on fun with colors, textures and simple painting techniques for young learners.',
-        date: 'February, 24th',
-        time: '11:00 – 12:00',
-        teacher: 'Sara Lin',
-        teacherRole: 'Instructor',
-        image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&q=80&w=600',
-        badge: 'UPCOMING',
-    },
 ];
 
 export default function WebinarSection() {
@@ -169,17 +145,16 @@ export default function WebinarSection() {
             </motion.div>
 
             {/* Upcoming Webinar Cards Row */}
-            <div className="relative w-full">
-                <div ref={(el) => (window.webinarScroller = el)} className="flex gap-6 overflow-x-auto pb-6 w-full no-scrollbar">
-                    {rest.map((webinar, idx) => (
-                        <motion.div
-                            key={webinar.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.15 }}
-                            className="w-full sm:flex-shrink-0 sm:min-w-[320px] relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
-                        >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {rest.map((webinar, idx) => (
+                    <motion.div
+                        key={webinar.id}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.15 }}
+                        className="relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
+                    >
                         {/* Image */}
                         <div className="sm:w-44 h-48 sm:h-auto relative flex-shrink-0 overflow-hidden">
                             <img
@@ -222,18 +197,7 @@ export default function WebinarSection() {
                             </button>
                         </div>
                     </motion.div>
-                    ))}
-                </div>
-
-                <button
-                    aria-label="Scroll webinars right"
-                    onClick={() => { if (window.webinarScroller) window.webinarScroller.scrollBy({ left: 520, behavior: 'smooth' }); }}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md text-gray-600 hover:bg-gray-50 flex items-center justify-center"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M12.293 16.293a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                </button>
+                ))}
             </div>
         </section>
     );

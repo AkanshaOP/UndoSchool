@@ -1,6 +1,6 @@
 import { ShoppingCart, Star, Clock, User, ArrowRight } from 'lucide-react';
 import { motion, useMotionValue, animate } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { useModal } from './AppProviders';
 
 // Flip Card Component — front face shows image, back face shows course details
@@ -147,7 +147,7 @@ function CourseCardItem({ course, idx }) {
     );
 }
 
-export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData, sectionId }) {
+export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData }) {
     // Default dummy data matching structure and adding `imageHover`
     const courses = coursesData || [
         {
@@ -194,99 +194,21 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
             imageHover: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=400',
             topic: 'Public Speaking'
         },
-        {
-            id: 5, sellingFast: false,
-            title: 'Beginner Chess for Kids',
-            description: 'Introductory chess lessons focusing on basics and fun puzzles.',
-            age: '7-10 yrs', time: '30 mins', price: '₹ 199', rating: 4.7, learners: 220,
-            tags: [{ name: 'Chess', color: 'text-gray-600 bg-gray-50 border-gray-200' }],
-            teacher: 'Alex Kumar',
-            image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=400',
-            imageHover: 'https://images.unsplash.com/photo-1588412079929-790b9f593d8e?auto=format&fit=crop&q=80&w=400',
-            topic: 'Chess'
-        },
-        {
-            id: 6, sellingFast: false,
-            title: 'Interactive Math Puzzles',
-            description: 'Engaging math puzzles that build logical thinking.',
-            age: '9-12 yrs', time: '40 mins', price: '₹ 249', rating: 4.6, learners: 150,
-            tags: [{ name: 'Math', color: 'text-yellow-600 bg-yellow-50 border-yellow-200' }],
-            teacher: 'Maya Verma',
-            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=400',
-            imageHover: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=400',
-            topic: 'Math'
-        },
-        {
-            id: 7, sellingFast: false,
-            title: 'Creative Storytelling & Writing',
-            description: 'Nurture creativity with fun storytelling and writing exercises.',
-            age: '8-11 yrs', time: '35 mins', price: '₹ 199', rating: 4.8, learners: 310,
-            tags: [{ name: 'English', color: 'text-blue-600 bg-blue-50 border-blue-200' }],
-            teacher: 'Neha Gupta',
-            image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400',
-            imageHover: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&q=80&w=400',
-            topic: 'English'
-        },
     ];
 
-    const scrollerRef = useRef(null);
-    const [canScrollRight, setCanScrollRight] = useState(false);
-
-    useEffect(() => {
-        const el = scrollerRef.current;
-        if (!el) return;
-        const check = () => setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-        check();
-        el.addEventListener('scroll', check);
-        window.addEventListener('resize', check);
-        return () => {
-            el.removeEventListener('scroll', check);
-            window.removeEventListener('resize', check);
-        };
-    }, [courses.length]);
-
     return (
-        <div id={sectionId || undefined} className="flex flex-col items-center max-w-7xl mx-auto px-4 w-full">
+        <div className="flex flex-col items-center max-w-7xl mx-auto px-4 w-full">
             {sectionTitle && (
                 <div className="text-center space-y-2 mb-10 mt-10">
                     <h2 className="text-4xl font-extrabold text-[#1a1a2e]">{sectionTitle}</h2>
                     {sectionSubtitle && <p className="text-gray-500 text-lg font-medium">{sectionSubtitle}</p>}
-
-                    {/* Inline chips / divs row */}
-                    <div className="flex flex-wrap justify-center items-center gap-3 mt-4">
-                        <div className="px-3 py-1 rounded-full bg-white border border-gray-100 shadow-sm text-sm cursor-pointer hover:bg-gray-50">Featured Courses</div>
-                        <div className="text-gray-300">|</div>
-                        <div className="px-3 py-1 rounded-full bg-white border border-gray-100 shadow-sm text-sm font-semibold cursor-pointer hover:bg-gray-50">New Launches <span className="text-yellow-500">⭐</span></div>
-                        <div className="text-gray-300">|</div>
-                        <div className="px-3 py-1 rounded-full bg-white border border-gray-100 shadow-sm text-sm cursor-pointer hover:bg-gray-50">Popular Categories</div>
-                    </div>
                 </div>
             )}
 
-            <div className="relative w-full">
-                <div ref={scrollerRef} className="flex gap-6 w-full items-stretch overflow-x-auto no-scrollbar pb-6">
-                    {courses.map((course, idx) => (
-                        <div key={course.id || idx} className="w-full sm:flex-shrink-0 sm:min-w-[280px] md:min-w-[320px] lg:min-w-[360px] xl:min-w-[420px]">
-                            <CourseCardItem course={course} idx={idx} />
-                        </div>
-                    ))}
-                </div>
-
-                {/* Right arrow attached to the right edge (appears over last visible card) */}
-                <button
-                    aria-label="Scroll courses right"
-                    onClick={() => {
-                        const el = scrollerRef.current;
-                        if (!el) return;
-                        el.scrollBy({ left: Math.min(el.clientWidth, 600), behavior: 'smooth' });
-                    }}
-                    disabled={!canScrollRight}
-                    className={`absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md text-gray-600 hover:bg-gray-50 flex items-center justify-center z-30 ${!canScrollRight ? 'opacity-40 pointer-events-none' : ''}`}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M12.293 16.293a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full items-stretch">
+                {courses.map((course, idx) => (
+                    <CourseCardItem key={course.id || idx} course={course} idx={idx} />
+                ))}
             </div>
         </div>
     );

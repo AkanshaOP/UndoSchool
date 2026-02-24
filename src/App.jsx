@@ -99,7 +99,7 @@ function AppContent() {
     ];
 
     return (
-        <div className="min-h-screen relative overflow-x-hidden bg-[#FAFBFF] pt-20">
+        <div className="min-h-screen relative overflow-x-hidden bg-[#FAFBFF]">
             <Navbar />
             <main>
                 <Hero />
@@ -108,13 +108,11 @@ function AppContent() {
                     <AgeFilters activeAge={activeAge} setActiveAge={setActiveAge} />
 
                     <CourseCards
-                        sectionId="new-launches"
                         sectionTitle="New Launches ⭐"
                         sectionSubtitle="Our most loved courses that kids absolutely adore!"
                     />
 
                     <CourseCards
-                        sectionId="featured-courses"
                         sectionTitle="Featured Courses ⭐"
                         sectionSubtitle="Our most loved courses that kids absolutely adore!"
                     />
@@ -124,7 +122,7 @@ function AppContent() {
                     <WebinarSection />
 
                     <div className="pt-8">
-                        <PopularCategories sectionId="popular-categories" />
+                        <PopularCategories />
                         <div className="mt-4 md:mt-8">
                             <CourseCards coursesData={popularCoursesData} />
                         </div>
