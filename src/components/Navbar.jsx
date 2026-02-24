@@ -6,8 +6,17 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { openLogin, openRegister } = useModal();
 
+    const scrollToSection = (id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const navHeight = 80; // h-20
+        const y = el.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        setIsOpen(false);
+    };
+
     return (
-        <nav className="w-full bg-white z-50 border-b border-gray-100/50 sticky top-0 shadow-sm">
+        <nav className="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100/50 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     <div className="flex items-center gap-8">
@@ -16,11 +25,14 @@ export default function Navbar() {
                             <span className="text-[#1a1a2e]">Undo</span><span className="text-[#1E90FF]">school</span>
                         </span>
 
-                        <div className="hidden md:flex space-x-6">
-                            <div className="relative group cursor-pointer">
-                                <span className="text-primary font-bold text-lg">Course</span>
-                                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent"></span>
-                            </div>
+                        <div className="hidden md:flex items-center space-x-4">
+                            <div className="flex items-center space-x-3 text-sm">
+                                    <button onClick={() => scrollToSection('featured-courses')} className="cursor-pointer font-semibold text-gray-700 hover:text-[#1E90FF]">Featured Courses</button>
+                                    <div className="text-gray-300">|</div>
+                                    <button onClick={() => scrollToSection('new-launches')} className="cursor-pointer font-semibold text-gray-700 hover:text-[#1E90FF]">New Launches <span className="text-yellow-500">⭐</span></button>
+                                    <div className="text-gray-300">|</div>
+                                    <button onClick={() => scrollToSection('popular-categories')} className="cursor-pointer font-semibold text-gray-700 hover:text-[#1E90FF]">Popular Categories</button>
+                                </div>
                         </div>
                     </div>
 
@@ -55,8 +67,12 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {isOpen && (
                 <div className="md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-6 space-y-1">
-                    <div className="block px-3 py-3 rounded-lg text-base font-bold text-[#411C6B]">
-                        Course
+                    <div className="flex flex-wrap gap-3 items-center">
+                        <button onClick={() => { setIsOpen(false); scrollToSection('featured-courses'); }} className="px-3 py-2 rounded-lg text-base font-semibold text-gray-700 hover:text-[#1E90FF] cursor-pointer">Featured Courses</button>
+                        <div className="text-gray-300">|</div>
+                        <button onClick={() => { setIsOpen(false); scrollToSection('new-launches'); }} className="px-3 py-2 rounded-lg text-base font-semibold text-gray-700 hover:text-[#1E90FF] cursor-pointer">New Launches <span className="text-yellow-500">⭐</span></button>
+                        <div className="text-gray-300">|</div>
+                        <button onClick={() => { setIsOpen(false); scrollToSection('popular-categories'); }} className="px-3 py-2 rounded-lg text-base font-semibold text-gray-700 hover:text-[#1E90FF] cursor-pointer">Popular Categories</button>
                     </div>
                     <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
                         <button

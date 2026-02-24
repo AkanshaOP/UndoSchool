@@ -1,6 +1,6 @@
-import { Sunrise, Sun, Moon, MoonStar } from 'lucide-react';
+import { Sunrise, Sun, Moon, MoonStar, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const times = [
     { id: 'morning', label: 'Morning classes', time: '8am - 12pm', icon: Sunrise, color: 'from-amber-50 to-orange-50', border: 'border-orange-100', iconColor: 'text-orange-400', glow: 'shadow-orange-100' },
@@ -41,6 +41,28 @@ const cardVariants = {
 
 export default function FilterWithTime() {
     const [active, setActive] = useState(null);
+    const scrollerRef = useRef(null);
+    const [canScrollRight, setCanScrollRight] = useState(false);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+
+    useEffect(() => {
+        const el = scrollerRef.current;
+        if (!el) return;
+
+        const update = () => {
+            setCanScrollLeft(el.scrollLeft > 0);
+            setCanScrollRight(el.scrollWidth > el.clientWidth && el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+        };
+
+        update();
+        el.addEventListener('scroll', update);
+        window.addEventListener('resize', update);
+
+        return () => {
+            el.removeEventListener('scroll', update);
+            window.removeEventListener('resize', update);
+        };
+    }, []);
 
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto px-4 w-full mt-16 mb-8">
@@ -57,7 +79,8 @@ export default function FilterWithTime() {
             </motion.div>
 
             {/* Time filter cards */}
-            <div className="flex gap-4 overflow-x-auto pb-4 w-full justify-start lg:justify-center no-scrollbar">
+            <div className="relative w-full">
+                <div ref={scrollerRef} className="flex gap-4 overflow-x-auto pb-4 w-full justify-start lg:justify-center no-scrollbar">
                 {times.map((item, i) => {
                     const IconComp = item.icon;
                     const isActive = active === item.id;
@@ -103,6 +126,34 @@ export default function FilterWithTime() {
                         </motion.div>
                     );
                 })}
+                </div>
+
+                {/* Left / Right arrows for desktop */}
+                <button
+                    aria-label="Scroll left"
+                    onClick={() => {
+                        const el = scrollerRef.current;
+                        if (!el) return;
+                        el.scrollBy({ left: -Math.min(el.clientWidth, 400), behavior: 'smooth' });
+                    }}
+                    disabled={!canScrollLeft}
+                    className={`hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md text-gray-600 hover:bg-gray-50 items-center justify-center z-30 ${!canScrollLeft ? 'opacity-40 pointer-events-none' : ''}`}
+                >
+                    <ChevronLeft size={18} />
+                </button>
+
+                <button
+                    aria-label="Scroll right"
+                    onClick={() => {
+                        const el = scrollerRef.current;
+                        if (!el) return;
+                        el.scrollBy({ left: Math.min(el.clientWidth, 400), behavior: 'smooth' });
+                    }}
+                    disabled={!canScrollRight}
+                    className={`hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md text-gray-600 hover:bg-gray-50 items-center justify-center z-30 ${!canScrollRight ? 'opacity-40 pointer-events-none' : ''}`}
+                >
+                    <ChevronRight size={18} />
+                </button>
             </div>
         </div>
     );
