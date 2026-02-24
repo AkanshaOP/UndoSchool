@@ -97,7 +97,7 @@ export default function FilterWithTime() {
                             whileHover={{ y: -6, scale: 1.03 }}
                             onClick={() => setActive(isActive ? null : item.id)}
                             className={`
-                                min-w-[220px] rounded-3xl p-5 border flex justify-between items-end cursor-pointer
+                                w-full sm:min-w-[220px] rounded-3xl p-5 border flex justify-between items-end cursor-pointer
                                 bg-gradient-to-br ${item.color} ${item.border}
                                 transition-all duration-300
                                 ${isActive
