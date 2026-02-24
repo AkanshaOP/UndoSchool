@@ -31,19 +31,57 @@ export default function AgeFilters({ activeAge, setActiveAge }) {
             </div>
 
             <div className="w-full overflow-x-auto pb-4 no-scrollbar">
-                <div className="flex gap-3 justify-start lg:justify-center w-max mx-auto px-4">
-                    {ages.map((ageObj) => (
-                        <button
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.05
+                            }
+                        }
+                    }}
+                    className="flex gap-3 justify-start lg:justify-center w-max mx-auto px-4"
+                >
+                    {ages.map((ageObj, idx) => (
+                        <motion.button
                             key={ageObj.label}
                             onClick={() => setActiveAge(ageObj.label)}
-                            className={`flex flex-col items-center justify-center p-2 rounded-xl border-2 hover:bg-gray-50 transition-all ${activeAge === ageObj.label ? "bg-gray-50 shadow-md scale-105" : "bg-white"
-                                } ${ageObj.color} w-16 h-16`}
+                            variants={{
+                                hidden: { opacity: 0, y: -20 },
+                                visible: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { duration: 0.5, ease: "easeOut" }
+                                }
+                            }}
+                            whileHover={{
+                                y: 5,
+                                scale: 1.05,
+                                transition: { duration: 0.2 }
+                            }}
+                            animate={{
+                                y: [0, 5, 0],
+                            }}
+                            transition={{
+                                y: {
+                                    repeat: Infinity,
+                                    duration: 3 + Math.random() * 2,
+                                    ease: "easeInOut",
+                                    delay: idx * 0.1
+                                }
+                            }}
+                            className={`flex flex-col items-center justify-center p-2 rounded-xl border-2 hover:bg-gray-50 transition-colors shadow-sm ${activeAge === ageObj.label ? "bg-white ring-4 ring-offset-2 ring-purple-500/20 shadow-lg !scale-110" : "bg-white"
+                                } ${ageObj.color} w-16 h-16 relative z-10`}
                         >
                             <span className="text-sm font-bold text-textMain leading-tight">{ageObj.label}</span>
                             <span className="text-xs text-textMain">Years</span>
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </div>
     );
