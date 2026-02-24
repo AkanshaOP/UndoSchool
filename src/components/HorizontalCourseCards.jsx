@@ -14,7 +14,7 @@ export default function HorizontalCourseCards() {
     return (
         <div className="flex gap-6 overflow-x-auto pb-12 w-full max-w-7xl mx-auto px-4 no-scrollbar">
             {courses.map((course, idx) => (
-                <div key={idx} className="w-full sm:flex sm:min-w-[500px] sm:h-[220px] bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-purple-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 relative group">
+                <div key={idx} className="flex min-w-[500px] h-[220px] bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-purple-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 relative group">
 
                     {/* Selling Fast tag */}
                     {course.sellingFast && (

@@ -266,7 +266,7 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
             <div className="relative w-full">
                 <div ref={scrollerRef} className="flex gap-6 w-full items-stretch overflow-x-auto no-scrollbar pb-6">
                     {courses.map((course, idx) => (
-                        <div key={course.id || idx} className="w-full sm:flex-shrink-0 sm:min-w-[280px] md:min-w-[320px] lg:min-w-[360px] xl:min-w-[420px]">
+                        <div key={course.id || idx} className="flex-shrink-0 min-w-[280px] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[420px]">
                             <CourseCardItem course={course} idx={idx} />
                         </div>
                     ))}
