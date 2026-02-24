@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Play, ArrowRight, Video } from 'lucide-react';
+import { Calendar, Clock, Play, ArrowRight, ArrowLeft, Video } from 'lucide-react';
 
 const webinars = [
     {
@@ -42,6 +43,15 @@ const webinars = [
 
 export default function WebinarSection() {
     const [main, ...rest] = webinars;
+    const scrollRef = useRef(null);
+
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const { current } = scrollRef;
+            const scrollAmount = direction === 'left' ? -400 : 400;
+            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
 
     return (
         <section className="w-full px-4 max-w-7xl mx-auto">
@@ -144,8 +154,20 @@ export default function WebinarSection() {
                 </div>
             </motion.div>
 
+            <div className="flex justify-between items-end mb-6 w-full">
+                <h3 className="text-[#1a1a2e] text-2xl font-bold px-4 md:px-0">Upcoming Sessions</h3>
+                <div className="flex gap-3 px-4 md:px-0">
+                    <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
+                        <ArrowLeft size={20} />
+                    </button>
+                    <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
+                        <ArrowRight size={20} />
+                    </button>
+                </div>
+            </div>
+
             {/* Upcoming Webinar Cards Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div ref={scrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x no-scrollbar px-2 md:px-0 w-full scroll-smooth">
                 {rest.map((webinar, idx) => (
                     <motion.div
                         key={webinar.id}
@@ -153,7 +175,7 @@ export default function WebinarSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.15 }}
-                        className="relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
+                        className="min-w-[340px] md:min-w-[420px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
                     >
                         {/* Image */}
                         <div className="sm:w-44 h-48 sm:h-auto relative flex-shrink-0 overflow-hidden">
@@ -198,6 +220,19 @@ export default function WebinarSection() {
                         </div>
                     </motion.div>
                 ))}
+
+                {/* Register/CTA Div */}
+                <div className="min-w-[280px] md:min-w-[320px] shrink-0 snap-center flex items-center justify-center relative bg-gradient-to-br from-[#1a1a2e] to-[#2a2a4a] rounded-2xl overflow-hidden shadow-xl border border-white/10 hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-all cursor-pointer group p-8">
+                    <div className="flex flex-col items-center text-center gap-5">
+                        <div className="w-16 h-16 rounded-full bg-[#F7B731] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-yellow-400/20">
+                            <ArrowRight size={28} className="text-[#1a1a2e]" />
+                        </div>
+                        <div className="space-y-1">
+                            <span className="text-white font-black tracking-wide uppercase text-sm block">See more webinars</span>
+                            <span className="text-gray-400 text-[10px] font-medium uppercase tracking-[0.2em]">Explore all live events</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

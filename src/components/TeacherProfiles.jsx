@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 const teachers = [
     { id: 1, name: 'Andy Brew', title: 'M.Sc, B.Ed', experience: '15+ Years', students: '1000+ Students', subject: 'Computer science', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200' },
@@ -9,16 +11,36 @@ const teachers = [
 ];
 
 export default function TeacherProfiles() {
+    const scrollRef = useRef(null);
+
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const { current } = scrollRef;
+            const scrollAmount = direction === 'left' ? -350 : 350;
+            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
+
     return (
         <section id="teachers" className="space-y-12 max-w-7xl mx-auto px-4 w-full">
-            <div className="text-center space-y-2 mt-10">
-                <h2 className="text-4xl font-extrabold text-textMain">Learn from Top Teachers</h2>
-                <p className="text-textMuted text-lg font-medium">Expert instructors who make learning fun and engaging for every child</p>
+            <div className="w-full flex flex-col items-center text-center mt-10 gap-6">
+                <div className="space-y-2">
+                    <h2 className="text-4xl font-extrabold text-textMain">Learn from Top Teachers</h2>
+                    <p className="text-textMuted text-lg font-medium">Expert instructors who make learning fun and engaging for every child</p>
+                </div>
+                <div className="flex gap-3">
+                    <button onClick={() => scroll('left')} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
+                        <ArrowLeft size={24} />
+                    </button>
+                    <button onClick={() => scroll('right')} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
+                        <ArrowRight size={24} />
+                    </button>
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 pt-12 w-full">
+            <div ref={scrollRef} className="flex gap-6 pt-12 w-full overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth md:px-0 px-4">
                 {teachers.map((teacher, idx) => (
-                    <div key={idx} className="bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300">
+                    <div key={idx} className="min-w-[240px] shrink-0 snap-center bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300">
                         <div className="absolute -top-12">
                             <div className="w-24 h-24 rounded-full border-4 border-white shadow-xl bg-gray-200">
                                 <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover rounded-full" />
@@ -38,6 +60,15 @@ export default function TeacherProfiles() {
                         </div>
                     </div>
                 ))}
+
+                <div className="min-w-[200px] shrink-0 snap-center flex flex-col items-center justify-center mt-10">
+                    <button className="flex flex-col items-center justify-center text-[#1a1a2e] hover:scale-110 transition-transform group">
+                        <div className="w-16 h-16 rounded-full bg-white shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex items-center justify-center mb-3 group-hover:bg-[#F7B731] transition-colors">
+                            <ArrowRight size={24} className="text-[#1a1a2e]" />
+                        </div>
+                        <span className="font-extrabold text-base">All Teachers</span>
+                    </button>
+                </div>
             </div>
         </section>
     );

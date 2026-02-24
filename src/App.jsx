@@ -99,42 +99,50 @@ function AppContent() {
     ];
 
     return (
-        <div className="min-h-screen relative overflow-x-hidden bg-[#FAFBFF]">
+        <div className="min-h-screen relative overflow-x-clip bg-[#FAFBFF]">
             <Navbar />
             <main>
-                <Hero />
-                <div className="flex flex-col space-y-16 py-16">
+                <div id="home">
+                    <Hero />
+                </div>
+                <div className="flex flex-col space-y-16 py-16 w-full items-center">
+                    <div id="age-filters" className="w-full">
+                        <AgeFilters activeAge={activeAge} setActiveAge={setActiveAge} />
+                    </div>
 
-                    <AgeFilters activeAge={activeAge} setActiveAge={setActiveAge} />
+                    <div id="courses" className="w-full">
+                        <CourseCards
+                            sectionTitle="New Launches ⭐"
+                            sectionSubtitle="Our most loved courses that kids absolutely adore!"
+                        />
 
-                    <CourseCards
-                        sectionTitle="New Launches ⭐"
-                        sectionSubtitle="Our most loved courses that kids absolutely adore!"
-                    />
+                        <CourseCards
+                            sectionTitle="Featured Courses ⭐"
+                            sectionSubtitle="Our most loved courses that kids absolutely adore!"
+                        />
+                    </div>
 
-                    <CourseCards
-                        sectionTitle="Featured Courses ⭐"
-                        sectionSubtitle="Our most loved courses that kids absolutely adore!"
-                    />
+                    <div id="teachers" className="w-full">
+                        <TeacherProfiles />
+                    </div>
 
-                    <TeacherProfiles />
+                    <div id="webinars" className="w-full">
+                        <WebinarSection />
+                    </div>
 
-                    <WebinarSection />
-
-                    <div className="pt-8">
+                    <div id="popular" className="pt-8 w-full">
                         <PopularCategories />
                         <div className="mt-4 md:mt-8">
                             <CourseCards coursesData={popularCoursesData} />
                         </div>
                     </div>
 
-                    <div className="pt-10">
+                    <div id="explore" className="pt-10 w-full">
                         <FilterWithTime />
                         <div className="-mt-8">
                             <HorizontalCourseCards />
                         </div>
                     </div>
-
                 </div>
             </main>
             <Footer />

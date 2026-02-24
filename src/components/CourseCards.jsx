@@ -1,7 +1,8 @@
-import { ShoppingCart, Star, Clock, User, ArrowRight } from 'lucide-react';
-import { motion, useMotionValue, animate } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useModal } from './AppProviders';
+import { ShoppingCart, Star, Clock, User, ArrowRight, ArrowLeft } from 'lucide-react';
+
+import { motion, useMotionValue, animate } from 'framer-motion';
 
 // Flip Card Component — front face shows image, back face shows course details
 function CourseCardItem({ course, idx }) {
@@ -196,18 +197,47 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
         },
     ];
 
+    const scrollRef = useRef(null);
+
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const { current } = scrollRef;
+            const scrollAmount = direction === 'left' ? -350 : 350;
+            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto px-4 w-full">
             {sectionTitle && (
-                <div className="text-center space-y-2 mb-10 mt-10">
-                    <h2 className="text-4xl font-extrabold text-[#1a1a2e]">{sectionTitle}</h2>
-                    {sectionSubtitle && <p className="text-gray-500 text-lg font-medium">{sectionSubtitle}</p>}
+                <div className="w-full flex flex-col items-center text-center mb-10 mt-10 gap-6">
+                    <div className="space-y-2">
+                        <h2 className="text-4xl font-extrabold text-[#1a1a2e]">{sectionTitle}</h2>
+                        {sectionSubtitle && <p className="text-gray-500 text-lg font-medium">{sectionSubtitle}</p>}
+                    </div>
+                    <div className="flex gap-3">
+                        <button onClick={() => scroll('left')} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
+                            <ArrowLeft size={24} />
+                        </button>
+                        <button onClick={() => scroll('right')} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
+                            <ArrowRight size={24} />
+                        </button>
+                    </div>
                 </div>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full items-stretch">
+            <div ref={scrollRef} className="flex overflow-x-auto gap-6 w-full items-stretch pb-8 snap-x no-scrollbar md:px-0 scroll-smooth pt-8">
                 {courses.map((course, idx) => (
-                    <CourseCardItem key={course.id || idx} course={course} idx={idx} />
+                    <div key={course.id || idx} className="min-w-[300px] md:min-w-[340px] shrink-0 snap-center relative">
+                        {/* Small arrow above the first card */}
+                        {idx === 0 && (
+                            <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-20">
+                                <span className="text-[10px] font-bold text-[#F7B731] bg-[#1a1a2e] px-2 py-0.5 rounded-full border border-[#F7B731]/30 mb-1 shadow-lg uppercase tracking-wider">Top rated</span>
+                                <ArrowRight size={18} className="text-[#F7B731] rotate-90" />
+                            </div>
+                        )}
+                        <CourseCardItem course={course} idx={idx} />
+                    </div>
                 ))}
             </div>
         </div>
