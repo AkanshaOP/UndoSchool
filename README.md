@@ -3,6 +3,10 @@
 ## 🚀 Live Demo
 [https://AkanshaOP.github.io/UndoSchool/](https://AkanshaOP.github.io/UndoSchool/)
 
+
+Submit by -Akansha
+Date of submission - 24 February 2026
+
 ## ✨ Enhancements & Creative Additions
 1. **Dynamic Micro-Animations**: Used `framer-motion` for smooth layout transitions, floating visuals in the Hero section, and active states in the age filter.
 2. **Glassmorphism**: Added `glass` classes to the Navigation bar for a premium, sleek feel blurring the content seamlessly.
@@ -38,3 +42,5 @@
 
 ---
 *Created carefully with attention to layout, aesthetics, and modern web development best practices.*
+
+
