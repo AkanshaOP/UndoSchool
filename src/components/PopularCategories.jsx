@@ -12,6 +12,11 @@ export default function PopularCategories() {
         { id: 'Music', label: 'Music &\nInstruments', emoji: '🎸', activeColor: 'from-purple-400 to-purple-500' },
         { id: 'Science', label: 'Science\nExperiments', emoji: '🧪', activeColor: 'from-cyan-400 to-cyan-500' },
         { id: 'Art', label: 'Art &\nSketching', emoji: '🎨', activeColor: 'from-pink-400 to-pink-500' },
+        { id: 'Dance', label: 'Dance &\nMovement', emoji: '💃', activeColor: 'from-red-400 to-red-500' },
+        { id: 'Yoga', label: 'Yoga &\nWellness', emoji: '🧘', activeColor: 'from-green-300 to-green-500' },
+        { id: 'Languages', label: 'Language\nLearning', emoji: '🌍', activeColor: 'from-blue-300 to-blue-500' },
+        { id: 'Cooking', label: 'Cooking &\nBaking', emoji: '🍰', activeColor: 'from-yellow-400 to-yellow-600' },
+        { id: 'Photography', label: 'Photography\nHobby', emoji: '📸', activeColor: 'from-gray-400 to-gray-600' },
     ];
 
     return (
