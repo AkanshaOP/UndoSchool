@@ -9,11 +9,6 @@ export default function PopularCategories() {
         { id: 'Chess', label: 'Chess', emoji: '♟️', activeColor: 'from-gray-700 to-gray-900' },
         { id: 'Home work help', label: 'Home\nwork help', emoji: '📚', activeColor: 'from-blue-400 to-blue-500' },
         { id: 'App building', label: 'App\nbuilding', emoji: '📱', activeColor: 'from-indigo-400 to-indigo-500' },
-        { id: 'Dance', label: 'Dance &\nMovement', emoji: '💃', activeColor: 'from-red-400 to-red-500' },
-        { id: 'Yoga', label: 'Yoga &\nWellness', emoji: '🧘', activeColor: 'from-green-300 to-green-500' },
-        { id: 'Languages', label: 'Language\nLearning', emoji: '🌍', activeColor: 'from-blue-300 to-blue-500' },
-        { id: 'Cooking', label: 'Cooking &\nBaking', emoji: '🍰', activeColor: 'from-yellow-400 to-yellow-600' },
-        { id: 'Photography', label: 'Photography\nHobby', emoji: '📸', activeColor: 'from-gray-400 to-gray-600' },
     ];
 
     return (
