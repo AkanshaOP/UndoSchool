@@ -195,6 +195,28 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
             imageHover: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=400',
             topic: 'Public Speaking'
         },
+        {
+            id: 5, sellingFast: false,
+            title: 'Space Science: Journey Through the Solar System',
+            description: 'Explore planets, stars, and galaxies with stunning 3D simulations.',
+            age: '9-14 yrs', time: '55 mins', price: '₹ 349', rating: 4.9, learners: 420,
+            tags: [{ name: 'Science', color: 'text-indigo-600 bg-indigo-50 border-indigo-200' }, { name: 'Popular', color: 'text-orange-600 bg-orange-50 border-orange-200' }],
+            teacher: 'Dr. James Smith',
+            image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=400',
+            imageHover: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=400',
+            topic: 'Science'
+        },
+        {
+            id: 6, sellingFast: true,
+            title: 'Digital Illustration: Drawing Your Own Characters',
+            description: 'Master the basics of digital art and character design.',
+            age: '11-16 yrs', time: '60 mins', price: '₹ 449', rating: 5.0, learners: 280,
+            tags: [{ name: 'Design', color: 'text-teal-600 bg-teal-50 border-teal-200' }, { name: 'Bestseller', color: 'text-yellow-600 bg-yellow-50 border-yellow-200' }],
+            teacher: 'Emily Rose',
+            image: 'https://images.unsplash.com/photo-1547891269-05220c156631?auto=format&fit=crop&q=80&w=400',
+            imageHover: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400',
+            topic: 'Art'
+        },
     ];
 
     const scrollRef = useRef(null);

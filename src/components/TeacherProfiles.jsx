@@ -38,12 +38,21 @@ export default function TeacherProfiles() {
                 </div>
             </div>
 
-            <div ref={scrollRef} className="flex gap-6 pt-12 w-full overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth md:px-0 px-4">
+            <div ref={scrollRef} className="flex gap-6 pt-12 w-full overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth md:px-0 px-2">
                 {teachers.map((teacher, idx) => (
-                    <div key={idx} className="min-w-[240px] shrink-0 snap-center bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300">
+                    <div key={idx} className="min-w-[240px] shrink-0 snap-center bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300 group">
+
+                        {/* Small arrow above the first card */}
+                        {idx === 0 && (
+                            <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-20">
+                                <span className="text-[10px] font-bold text-[#1E90FF] bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100 mb-1 shadow-sm uppercase tracking-wider">Expert Peers</span>
+                                <ArrowRight size={18} className="text-[#1E90FF] rotate-90" />
+                            </div>
+                        )}
+
                         <div className="absolute -top-12">
-                            <div className="w-24 h-24 rounded-full border-4 border-white shadow-xl bg-gray-200">
-                                <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover rounded-full" />
+                            <div className="w-24 h-24 rounded-full border-4 border-white shadow-xl bg-gray-200 overflow-hidden">
+                                <img src={teacher.image} alt={teacher.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                             </div>
                         </div>
 
@@ -60,15 +69,6 @@ export default function TeacherProfiles() {
                         </div>
                     </div>
                 ))}
-
-                <div className="min-w-[200px] shrink-0 snap-center flex flex-col items-center justify-center mt-10">
-                    <button className="flex flex-col items-center justify-center text-[#1a1a2e] hover:scale-110 transition-transform group">
-                        <div className="w-16 h-16 rounded-full bg-white shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex items-center justify-center mb-3 group-hover:bg-[#F7B731] transition-colors">
-                            <ArrowRight size={24} className="text-[#1a1a2e]" />
-                        </div>
-                        <span className="font-extrabold text-base">All Teachers</span>
-                    </button>
-                </div>
             </div>
         </section>
     );

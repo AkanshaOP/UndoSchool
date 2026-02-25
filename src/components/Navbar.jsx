@@ -10,8 +10,9 @@ export default function Navbar() {
     const navItems = [
         { label: 'How Old Are You?', id: 'age-filters' },
         { label: 'Featured Courses ⭐', id: 'courses' },
-        { label: 'Webinar', id: 'webinars' },
+        { label: 'Webinars', id: 'webinars' },
         { label: 'Popular Categories', id: 'popular' },
+        { label: 'Explore', id: 'explore' },
     ];
 
     useEffect(() => {
