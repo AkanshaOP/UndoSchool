@@ -12,7 +12,6 @@ export default function Navbar() {
         { label: 'Featured Courses ⭐', id: 'courses' },
         { label: 'Webinars', id: 'webinars' },
         { label: 'Popular Categories', id: 'popular' },
-        { label: 'Explore', id: 'explore' },
     ];
 
     useEffect(() => {
