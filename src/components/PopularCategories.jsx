@@ -5,10 +5,13 @@ export default function PopularCategories() {
 
     const categories = [
         { id: 'Coding', label: 'Coding', emoji: '💻', activeColor: 'from-orange-400 to-orange-500' },
-        { id: 'Public speaking', label: 'Public\nspeaking', emoji: '🎙️' },
-        { id: 'Chess', label: 'Chess', emoji: '♟️' },
-        { id: 'Home work help', label: 'Home\nwork help', emoji: '📚' },
-        { id: 'App building', label: 'App\nbuilding', emoji: '📱' },
+        { id: 'Public speaking', label: 'Public\nspeaking', emoji: '🎙️', activeColor: 'from-green-400 to-green-500' },
+        { id: 'Chess', label: 'Chess', emoji: '♟️', activeColor: 'from-gray-700 to-gray-900' },
+        { id: 'Home work help', label: 'Home\nwork help', emoji: '📚', activeColor: 'from-blue-400 to-blue-500' },
+        { id: 'App building', label: 'App\nbuilding', emoji: '📱', activeColor: 'from-indigo-400 to-indigo-500' },
+        { id: 'Music', label: 'Music &\nInstruments', emoji: '🎸', activeColor: 'from-purple-400 to-purple-500' },
+        { id: 'Science', label: 'Science\nExperiments', emoji: '🧪', activeColor: 'from-cyan-400 to-cyan-500' },
+        { id: 'Art', label: 'Art &\nSketching', emoji: '🎨', activeColor: 'from-pink-400 to-pink-500' },
     ];
 
     return (

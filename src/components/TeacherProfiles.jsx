@@ -11,6 +11,8 @@ const teachers = [
     { id: 6, name: 'Emily Rose', title: 'B.S, Design', experience: '7+ Years', students: '400+ Students', subject: 'Digital Art', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200' },
     { id: 7, name: 'Marco Polo', title: 'B.Tech, CS', experience: '10+ Years', students: '1200+ Students', subject: 'Game Dev', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200' },
     { id: 8, name: 'Lila Grace', title: 'M.Mus, Piano', experience: '14+ Years', students: '900+ Students', subject: 'Music Theory', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200' },
+    { id: 9, name: 'John Dalton', title: 'M.Sc, Chemistry', experience: '20+ Years', students: '3000+ Students', subject: 'Science', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200' },
+    { id: 10, name: 'Sophie Turner', title: 'B.A, Drama', experience: '5+ Years', students: '300+ Students', subject: 'Public Speaking', image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=200' },
 ];
 
 export default function TeacherProfiles() {
@@ -43,7 +45,7 @@ export default function TeacherProfiles() {
 
             <div ref={scrollRef} className="flex gap-6 pt-12 w-full overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth md:px-0 px-2">
                 {teachers.map((teacher, idx) => (
-                    <div key={idx} className="min-w-[240px] shrink-0 snap-center bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300 group">
+                    <div key={idx} className="min-w-[240px] h-[260px] shrink-0 snap-center bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300 group">
 
                         {/* Small arrow above the first card */}
                         {idx === 0 && (
