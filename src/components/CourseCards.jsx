@@ -263,14 +263,20 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
                 ))}
 
                 {/* See All Card */}
-                <div className="min-w-[280px] md:min-w-[300px] shrink-0 snap-center flex items-center justify-center relative bg-white rounded-[24px] overflow-hidden shadow-md border-2 border-dashed border-gray-200 hover:border-[#F7B731] transition-all cursor-pointer group mt-6 h-[376px]">
-                    <div className="flex flex-col items-center text-center gap-4">
-                        <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#F7B731] transition-all shadow-inner">
-                            <ArrowRight size={28} className="text-gray-400 group-hover:text-[#1a1a2e]" />
+                <div className="min-w-[280px] md:min-w-[300px] shrink-0 snap-center flex items-center justify-center relative bg-white rounded-[24px] overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-pointer group h-[400px]">
+                    <img
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
+                        className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                        alt="Explore All"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a1a2e]/80" />
+                    <div className="relative z-10 flex flex-col items-center text-center gap-4 p-6">
+                        <div className="w-16 h-16 rounded-full bg-[#F7B731] flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-transform">
+                            <ArrowRight size={28} className="text-[#1a1a2e]" />
                         </div>
                         <div className="space-y-1">
-                            <span className="text-[#1a1a2e] font-black tracking-wide uppercase text-sm block">Explore All</span>
-                            <span className="text-gray-400 text-[10px] font-medium uppercase tracking-widest">Discover more courses</span>
+                            <span className="text-white font-black tracking-wide uppercase text-lg block drop-shadow-md">Explore All</span>
+                            <span className="text-gray-200 text-xs font-medium uppercase tracking-widest opacity-80">Discover 50+ more courses</span>
                         </div>
                     </div>
                 </div>

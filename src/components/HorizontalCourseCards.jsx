@@ -62,7 +62,7 @@ export default function HorizontalCourseCards() {
                         {/* Image Left */}
                         <div className="w-[45%] h-full bg-gray-200 relative p-2 pb-0 object-cover flex-shrink-0 perspective-[2000px] overflow-hidden rounded-[20px] rounded-br-[4px]">
                             <img
-                                src={course.image}
+                                src={course.image || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400'}
                                 className="w-full h-full object-cover rounded-[20px] rounded-br-[4px] grayscale group-hover:grayscale-0 transition-transform duration-[1000ms] ease-in-out group-hover:[transform:rotateY(360deg)_scale(1.1)]"
                                 alt="Course Thumbnail"
                             />
@@ -110,6 +110,25 @@ export default function HorizontalCourseCards() {
                         </div>
                     </div>
                 ))}
+
+                {/* Explore All Card for Large Horizontal Section */}
+                <div className="min-w-[400px] shrink-0 snap-center h-[220px] relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-pointer group">
+                    <img
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600"
+                        className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                        alt="Explore All"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#411C6B]/80 to-transparent" />
+                    <div className="relative z-10 flex flex-col justify-center h-full p-8 gap-4">
+                        <div className="w-14 h-14 rounded-full bg-[#1E90FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <ArrowRight size={28} className="text-white" />
+                        </div>
+                        <div className="space-y-1">
+                            <span className="text-white font-black tracking-wide uppercase text-xl block">Explore All Courses</span>
+                            <span className="text-blue-100 text-sm font-medium uppercase tracking-widest opacity-90">Find more amazing topics</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
