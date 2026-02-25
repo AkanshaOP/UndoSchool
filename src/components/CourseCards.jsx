@@ -213,8 +213,8 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
             age: '11-16 yrs', time: '60 mins', price: '₹ 449', rating: 5.0, learners: 280,
             tags: [{ name: 'Design', color: 'text-teal-600 bg-teal-50 border-teal-200' }, { name: 'Bestseller', color: 'text-yellow-600 bg-yellow-50 border-yellow-200' }],
             teacher: 'Emily Rose',
-            image: 'https://images.unsplash.com/photo-1542810634-7bc2c78a162b?auto=format&fit=crop&q=80&w=400',
-            imageHover: 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&q=80&w=400',
+            image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400',
+            imageHover: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=400',
             topic: 'Art'
         },
     ];
@@ -263,9 +263,9 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
                 ))}
 
                 {/* See All Card */}
-                <div className="min-w-[280px] md:min-w-[300px] shrink-0 snap-center flex items-center justify-center relative bg-white rounded-[24px] overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-pointer group h-[400px]">
+                <div className="min-w-[300px] md:min-w-[340px] shrink-0 snap-center flex items-center justify-center relative bg-white rounded-[24px] overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-pointer group h-[400px]">
                     <img
-                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=400"
+                        src="https://images.unsplash.com/photo-1523240715639-9a67a0e71d6b?auto=format&fit=crop&q=80&w=400"
                         className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                         alt="Explore All"
                     />
