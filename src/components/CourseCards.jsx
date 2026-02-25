@@ -262,23 +262,11 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
                     </div>
                 ))}
 
-                {/* See All Card */}
-                <div className="min-w-[300px] md:min-w-[340px] shrink-0 snap-center flex items-center justify-center relative bg-white rounded-[24px] overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-pointer group h-[400px]">
-                    <img
-                        src="https://images.unsplash.com/photo-1523240715639-9a67a0e71d6b?auto=format&fit=crop&q=80&w=400"
-                        className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-                        alt="Explore All"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a1a2e]/80" />
-                    <div className="relative z-10 flex flex-col items-center text-center gap-4 p-6">
-                        <div className="w-16 h-16 rounded-full bg-[#F7B731] flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-transform">
-                            <ArrowRight size={28} className="text-[#1a1a2e]" />
-                        </div>
-                        <div className="space-y-1">
-                            <span className="text-white font-black tracking-wide uppercase text-lg block drop-shadow-md">Explore All</span>
-                            <span className="text-gray-200 text-xs font-medium uppercase tracking-widest opacity-80">Discover 50+ more courses</span>
-                        </div>
-                    </div>
+                {/* Minimal See All Arrow */}
+                <div className="min-w-[100px] shrink-0 snap-center flex items-center justify-center p-4">
+                    <button className="w-16 h-16 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-[#1a1a2e] hover:bg-[#F7B731] hover:text-[#1a1a2e] hover:scale-110 transition-all duration-300 group">
+                        <ArrowRight size={32} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
                 </div>
             </div>
         </div>

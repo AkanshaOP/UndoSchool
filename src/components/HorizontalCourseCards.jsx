@@ -111,23 +111,11 @@ export default function HorizontalCourseCards() {
                     </div>
                 ))}
 
-                {/* Explore All Card for Large Horizontal Section */}
-                <div className="min-w-[500px] shrink-0 snap-center h-[220px] relative bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all cursor-pointer group">
-                    <img
-                        src="https://images.unsplash.com/photo-1523240715639-9a67a0e71d6b?auto=format&fit=crop&q=80&w=400"
-                        className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-                        alt="Explore All"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#411C6B]/80 to-transparent" />
-                    <div className="relative z-10 flex flex-col justify-center h-full p-8 gap-4">
-                        <div className="w-14 h-14 rounded-full bg-[#1E90FF] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                            <ArrowRight size={28} className="text-white" />
-                        </div>
-                        <div className="space-y-1">
-                            <span className="text-white font-black tracking-wide uppercase text-xl block">Explore All Courses</span>
-                            <span className="text-blue-100 text-sm font-medium uppercase tracking-widest opacity-90">Find more amazing topics</span>
-                        </div>
-                    </div>
+                {/* Minimal See All Arrow */}
+                <div className="min-w-[100px] shrink-0 snap-center flex items-center justify-center p-4">
+                    <button className="w-16 h-16 rounded-full bg-white shadow-lg border border-purple-100 flex items-center justify-center text-[#411C6B] hover:bg-[#F7B731] hover:text-[#1a1a2e] hover:scale-110 transition-all duration-300 group">
+                        <ArrowRight size={32} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
                 </div>
             </div>
         </div>
