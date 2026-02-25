@@ -153,14 +153,14 @@ export default function Hero() {
                     }}
                     className="space-y-8 max-w-4xl mx-auto mt-10 relative z-30"
                 >
-                    <h1 className="text-4xl lg:text-7xl font-black font-heading leading-[1.1] tracking-tight">
+                    <h1 className="text-3xl sm:text-4xl lg:text-7xl font-black font-heading leading-[1.1] tracking-tight">
                         <div className="overflow-hidden">
                             <motion.span
                                 variants={{
                                     hidden: { y: 100, opacity: 0 },
                                     visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } }
                                 }}
-                                className="block mb-2 translate-y-full"
+                                className="block mb-2 translate-y-full px-2"
                             >
                                 Learn a New Skill
                             </motion.span>
@@ -171,7 +171,7 @@ export default function Hero() {
                                     hidden: { y: 100, opacity: 0 },
                                     visible: { y: 0, opacity: 1, transition: { duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] } }
                                 }}
-                                className="block text-[#FFE700]"
+                                className="block text-[#FFE700] px-2"
                             >
                                 Everyday, Anytime, and Anywhere.
                             </motion.span>
@@ -183,10 +183,10 @@ export default function Hero() {
                             hidden: { y: 20, opacity: 0 },
                             visible: { y: 0, opacity: 1, transition: { duration: 0.8, delay: 0.4 } }
                         }}
-                        className="relative max-w-2xl mx-auto pt-6"
+                        className="relative max-w-2xl mx-auto pt-6 px-4 sm:px-0"
                     >
-                        <div className="bg-white rounded-full p-2 flex items-center shadow-2xl">
-                            <Search className="text-gray-400 ml-4 w-6 h-6" />
+                        <div className="bg-white rounded-full p-1.5 sm:p-2 flex items-center shadow-2xl">
+                            <Search className="text-gray-400 ml-3 sm:ml-4 w-5 h-5 sm:w-6 sm:h-6" />
                             <input
                                 ref={inputRef}
                                 type="text"
@@ -199,14 +199,14 @@ export default function Hero() {
                                     }
                                 }}
                                 placeholder="What do you want to learn today?"
-                                className="flex-1 bg-transparent border-none outline-none text-[#1a1a2e] px-4 py-3 placeholder:text-gray-400"
+                                className="flex-1 bg-transparent border-none outline-none text-[#1a1a2e] px-2 sm:px-4 py-2 sm:py-3 placeholder:text-gray-400 text-sm sm:text-base min-w-0"
                             />
                             <button
                                 onClick={() => {
                                     if (query.trim()) showToast(`🔍 Searching for "${query}"...`, 'success');
                                     else { inputRef.current?.focus(); showToast('Please enter something to search!', 'error'); }
                                 }}
-                                className="bg-gradient-to-r from-[#411C6B] to-[#1E90FF] hover:opacity-90 text-white px-8 py-3 rounded-full font-bold transition-all shadow-md"
+                                className="bg-gradient-to-r from-[#411C6B] to-[#1E90FF] hover:opacity-90 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-full font-bold transition-all shadow-md text-sm sm:text-base whitespace-nowrap"
                             >
                                 Search
                             </button>

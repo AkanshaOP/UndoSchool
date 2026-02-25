@@ -43,7 +43,7 @@ export default function TeacherProfiles() {
                 </div>
             </div>
 
-            <div ref={scrollRef} className="flex gap-6 pt-12 w-full overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth md:px-0 px-2">
+            <div ref={scrollRef} className="flex gap-4 md:gap-8 pt-12 w-full overflow-x-auto pb-12 snap-x no-scrollbar scroll-smooth md:px-0 px-2">
                 {teachers.map((teacher, idx) => (
                     <div key={idx} className="min-w-[240px] h-[260px] shrink-0 snap-center bg-white rounded-[40px] rounded-bl-lg rounded-br-lg p-6 shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center relative mt-10 hover:-translate-y-2 transition-transform duration-300 group">
 

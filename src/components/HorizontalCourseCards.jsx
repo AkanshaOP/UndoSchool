@@ -40,9 +40,9 @@ export default function HorizontalCourseCards() {
                 </button>
             </div>
 
-            <div ref={scrollRef} className="flex gap-6 overflow-x-auto pb-12 w-full snap-x no-scrollbar scroll-smooth pt-8">
+            <div ref={scrollRef} className="flex gap-4 md:gap-8 overflow-x-auto pb-12 w-full snap-x no-scrollbar scroll-smooth pt-8">
                 {courses.map((course, idx) => (
-                    <div key={idx} className="flex min-w-[500px] shrink-0 snap-center h-[220px] bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-purple-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 relative group">
+                    <div key={idx} className="flex min-w-[300px] md:min-w-[500px] shrink-0 snap-center h-[200px] md:h-[220px] bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-purple-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 relative group">
 
                         {/* Small arrow above the first card */}
                         {idx === 0 && (

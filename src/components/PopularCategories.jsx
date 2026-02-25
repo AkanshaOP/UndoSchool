@@ -13,14 +13,14 @@ export default function PopularCategories() {
 
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto px-4 w-full">
-            <div className="text-center space-y-2 mb-6 pb-2">
-                <h2 className="text-4xl font-extrabold text-textMain">Popular Categories</h2>
-                <p className="text-textMuted text-lg font-medium">Pick what you love most! These categories have everything you need to learn something awesome ✨</p>
+            <div className="text-center space-y-2 mb-6 pb-2 px-2">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-textMain">Popular Categories</h2>
+                <p className="text-textMuted text-sm md:text-lg font-medium">Pick what you love most! ✨</p>
             </div>
 
             {/* Outer wrapper scrolls horizontally; overflow-y: visible so emojis don't get clipped */}
             <div className="w-full" style={{ overflowX: 'auto', overflowY: 'visible', paddingBottom: '10px' }}>
-                <div className="flex gap-4 w-max lg:w-full justify-start lg:justify-center items-end"
+                <div className="flex gap-4 md:gap-8 w-max lg:w-full justify-start lg:justify-center items-end"
                     style={{ paddingTop: '56px', paddingBottom: '8px' }}>
                     {categories.map((cat) => (
                         <div

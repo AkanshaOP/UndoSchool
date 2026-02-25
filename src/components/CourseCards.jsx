@@ -232,10 +232,10 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
     return (
         <div className="flex flex-col items-center max-w-7xl mx-auto px-4 w-full">
             {sectionTitle && (
-                <div className="w-full flex flex-col items-center text-center mb-10 mt-10 gap-6">
-                    <div className="space-y-2">
-                        <h2 className="text-4xl font-extrabold text-[#1a1a2e]">{sectionTitle}</h2>
-                        {sectionSubtitle && <p className="text-gray-500 text-lg font-medium">{sectionSubtitle}</p>}
+                <div className="w-full flex flex-col items-center text-center mb-6 md:mb-10 mt-6 md:mt-10 gap-4 md:gap-6">
+                    <div className="space-y-1 md:space-y-2 px-2">
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a2e]">{sectionTitle}</h2>
+                        {sectionSubtitle && <p className="text-gray-500 text-sm md:text-lg font-medium">{sectionSubtitle}</p>}
                     </div>
                     <div className="flex gap-3">
                         <button onClick={() => scroll('left')} className="w-12 h-12 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-500 hover:bg-[#F7B731] hover:border-[#F7B731] hover:text-[#1a1a2e] transition-all">
@@ -248,9 +248,9 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
                 </div>
             )}
 
-            <div ref={scrollRef} className="flex overflow-x-auto gap-6 w-full items-stretch pb-8 snap-x no-scrollbar md:px-0 scroll-smooth pt-8">
+            <div ref={scrollRef} className="flex overflow-x-auto gap-4 md:gap-6 w-full items-stretch pb-8 snap-x no-scrollbar scroll-smooth pt-8">
                 {courses.map((course, idx) => (
-                    <div key={course.id || idx} className="min-w-[300px] md:min-w-[340px] shrink-0 snap-center relative">
+                    <div key={course.id || idx} className="min-w-[280px] md:min-w-[340px] shrink-0 snap-center relative">
                         {/* Small arrow above the first card */}
                         {idx === 0 && (
                             <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-20">

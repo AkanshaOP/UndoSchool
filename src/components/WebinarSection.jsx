@@ -203,7 +203,7 @@ export default function WebinarSection() {
             </div>
 
             {/* Upcoming Webinar Cards Row */}
-            <div ref={scrollRef} className="flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x no-scrollbar px-2 md:px-0 w-full scroll-smooth">
+            <div ref={scrollRef} className="flex overflow-x-auto gap-4 md:gap-8 pb-8 snap-x no-scrollbar px-2 md:px-0 w-full scroll-smooth">
                 {rest.map((webinar, idx) => (
                     <motion.div
                         key={webinar.id}
@@ -211,7 +211,7 @@ export default function WebinarSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.15 }}
-                        className="min-w-[340px] md:min-w-[420px] h-[240px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
+                        className="min-w-[300px] md:min-w-[420px] h-auto sm:h-[240px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
                     >
                         {/* Image */}
                         <div className="sm:w-44 h-48 sm:h-auto relative flex-shrink-0 overflow-hidden">
