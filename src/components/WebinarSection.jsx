@@ -36,7 +36,43 @@ const webinars = [
         time: '15:00 – 16:30',
         teacher: 'Priya Sharma',
         teacherRole: 'Best Speaker',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1509228468518-180dd482180c?auto=format&fit=crop&q=80&w=600',
+        badge: 'UPCOMING',
+    },
+    {
+        id: 4,
+        label: 'SCIENCE LAB',
+        title: 'Explosive Science Experiments at Home',
+        description: 'Learn chemical reactions and physics principles with safe kitchen experiments.',
+        date: 'February, 22nd',
+        time: '11:00 – 12:30',
+        teacher: 'Dr. Newton',
+        teacherRole: 'Expert Scientist',
+        image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=600',
+        badge: 'UPCOMING',
+    },
+    {
+        id: 5,
+        label: 'DIGITAL ART',
+        title: 'Introduction to Procreate & Digital Illustration',
+        description: 'Master the basics of digital drawing, brushes, and layers for stunning art.',
+        date: 'February, 24th',
+        time: '18:00 – 20:00',
+        teacher: 'Lila Artista',
+        teacherRole: 'Lead Designer',
+        image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600',
+        badge: 'UPCOMING',
+    },
+    {
+        id: 6,
+        label: 'CHESS PRO',
+        title: 'Advanced Openings and Endgame Mastery',
+        description: 'Serious chess strategies for competitive play and tournament preparation.',
+        date: 'February, 26th',
+        time: '10:00 – 12:00',
+        teacher: 'Grandmaster Zee',
+        teacherRole: 'Chess Pro',
+        image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=600',
         badge: 'UPCOMING',
     },
 ];
@@ -175,7 +211,7 @@ export default function WebinarSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.15 }}
-                        className="min-w-[340px] md:min-w-[420px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
+                        className="min-w-[340px] md:min-w-[420px] h-[240px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
                     >
                         {/* Image */}
                         <div className="sm:w-44 h-48 sm:h-auto relative flex-shrink-0 overflow-hidden">
@@ -222,7 +258,7 @@ export default function WebinarSection() {
                 ))}
 
                 {/* Register/CTA Div */}
-                <div className="min-w-[280px] md:min-w-[320px] shrink-0 snap-center flex items-center justify-center relative bg-gradient-to-br from-[#1a1a2e] to-[#2a2a4a] rounded-2xl overflow-hidden shadow-xl border border-white/10 hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-all cursor-pointer group p-8">
+                <div className="min-w-[280px] md:min-w-[320px] h-[240px] shrink-0 snap-center flex items-center justify-center relative bg-gradient-to-br from-[#1a1a2e] to-[#2a2a4a] rounded-2xl overflow-hidden shadow-xl border border-white/10 hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-all cursor-pointer group p-8">
                     <div className="flex flex-col items-center text-center gap-5">
                         <div className="w-16 h-16 rounded-full bg-[#F7B731] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-yellow-400/20">
                             <ArrowRight size={28} className="text-[#1a1a2e]" />

@@ -4,10 +4,13 @@ import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 const teachers = [
     { id: 1, name: 'Andy Brew', title: 'M.Sc, B.Ed', experience: '15+ Years', students: '1000+ Students', subject: 'Computer science', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200' },
-    { id: 2, name: 'Andy Brew', title: 'M.Sc, B.Ed', experience: '15+ Years', students: '1000+ Students', subject: 'English', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200' },
-    { id: 3, name: 'Andy Brew', title: 'M.Sc, B.Ed', experience: '15+ Years', students: '1000+ Students', subject: 'Early educator', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200' },
-    { id: 4, name: 'Andy Brew', title: 'M.Sc, B.Ed', experience: '15+ Years', students: '1000+ Students', subject: 'Coding', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200' },
-    { id: 5, name: 'Andy Brew', title: 'M.Sc, B.Ed', experience: '15+ Years', students: '1000+ Students', subject: 'Computer science', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200' },
+    { id: 2, name: 'Sarah Wilson', title: 'B.FA, Art Master', experience: '10+ Years', students: '800+ Students', subject: 'English & Art', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200' },
+    { id: 3, name: 'Daniel James', title: 'Ph.D, Robotics', experience: '12+ Years', students: '1500+ Students', subject: 'Early educator', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200' },
+    { id: 4, name: 'Priya Sharma', title: 'M.A, Literature', experience: '8+ Years', students: '600+ Students', subject: 'Coding & Logic', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200' },
+    { id: 5, name: 'Alex Chen', title: 'M.S, Math', experience: '15+ Years', students: '2000+ Students', subject: 'Vedic Math', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200' },
+    { id: 6, name: 'Emily Rose', title: 'B.S, Design', experience: '7+ Years', students: '400+ Students', subject: 'Digital Art', image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200' },
+    { id: 7, name: 'Marco Polo', title: 'B.Tech, CS', experience: '10+ Years', students: '1200+ Students', subject: 'Game Dev', image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200' },
+    { id: 8, name: 'Lila Grace', title: 'M.Mus, Piano', experience: '14+ Years', students: '900+ Students', subject: 'Music Theory', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200' },
 ];
 
 export default function TeacherProfiles() {
