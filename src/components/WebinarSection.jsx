@@ -211,10 +211,10 @@ export default function WebinarSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.15 }}
-                        className="min-w-[300px] md:min-w-[420px] h-auto sm:h-[240px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
+                        className="min-w-[280px] md:min-w-[420px] h-auto sm:h-[240px] shrink-0 snap-center relative bg-[#1a1a2e] rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-xl hover:shadow-[0_0_40px_rgba(247,183,49,0.15)] transition-shadow duration-300 group"
                     >
                         {/* Image */}
-                        <div className="sm:w-44 h-48 sm:h-auto relative flex-shrink-0 overflow-hidden">
+                        <div className="w-full sm:w-44 h-48 sm:h-auto relative flex-shrink-0 overflow-hidden">
                             <img
                                 src={webinar.image}
                                 alt={webinar.title}

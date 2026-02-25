@@ -248,7 +248,7 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
                 </div>
             )}
 
-            <div ref={scrollRef} className="flex overflow-x-auto gap-4 md:gap-6 w-full items-stretch pb-8 snap-x no-scrollbar scroll-smooth pt-8">
+            <div ref={scrollRef} className="flex overflow-x-auto gap-4 md:gap-8 w-full items-stretch pb-8 snap-x no-scrollbar scroll-smooth pt-8">
                 {courses.map((course, idx) => (
                     <div key={course.id || idx} className="min-w-[280px] md:min-w-[340px] shrink-0 snap-center relative">
                         {/* Small arrow above the first card */}
