@@ -110,13 +110,6 @@ export default function HorizontalCourseCards() {
                         </div>
                     </div>
                 ))}
-
-                {/* Minimal See All Arrow */}
-                <div className="min-w-[100px] shrink-0 snap-center flex items-center justify-center p-4">
-                    <button className="w-16 h-16 rounded-full bg-white shadow-lg border border-purple-100 flex items-center justify-center text-[#411C6B] hover:bg-[#F7B731] hover:text-[#1a1a2e] hover:scale-110 transition-all duration-300 group">
-                        <ArrowRight size={32} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                </div>
             </div>
         </div>
     );
