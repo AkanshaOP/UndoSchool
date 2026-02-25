@@ -55,7 +55,7 @@ function CourseCardItem({ course, idx }) {
                     <div className="h-44 w-full relative p-2 pb-0 overflow-hidden">
                         <div className="w-full h-full relative overflow-hidden rounded-t-[16px] bg-gray-100">
                             <img
-                                src={course.image}
+                                src={course.image || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=400'}
                                 className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
                                 alt={course.title}
                             />
@@ -213,8 +213,8 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
             age: '11-16 yrs', time: '60 mins', price: '₹ 449', rating: 5.0, learners: 280,
             tags: [{ name: 'Design', color: 'text-teal-600 bg-teal-50 border-teal-200' }, { name: 'Bestseller', color: 'text-yellow-600 bg-yellow-50 border-yellow-200' }],
             teacher: 'Emily Rose',
-            image: 'https://images.unsplash.com/photo-1547891269-05220c156631?auto=format&fit=crop&q=80&w=400',
-            imageHover: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=400',
+            image: 'https://images.unsplash.com/photo-1542810634-7bc2c78a162b?auto=format&fit=crop&q=80&w=400',
+            imageHover: 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&q=80&w=400',
             topic: 'Art'
         },
     ];
@@ -261,6 +261,19 @@ export default function CourseCards({ sectionTitle, sectionSubtitle, coursesData
                         <CourseCardItem course={course} idx={idx} />
                     </div>
                 ))}
+
+                {/* See All Card */}
+                <div className="min-w-[280px] md:min-w-[300px] shrink-0 snap-center flex items-center justify-center relative bg-white rounded-[24px] overflow-hidden shadow-md border-2 border-dashed border-gray-200 hover:border-[#F7B731] transition-all cursor-pointer group mt-6 h-[376px]">
+                    <div className="flex flex-col items-center text-center gap-4">
+                        <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#F7B731] transition-all shadow-inner">
+                            <ArrowRight size={28} className="text-gray-400 group-hover:text-[#1a1a2e]" />
+                        </div>
+                        <div className="space-y-1">
+                            <span className="text-[#1a1a2e] font-black tracking-wide uppercase text-sm block">Explore All</span>
+                            <span className="text-gray-400 text-[10px] font-medium uppercase tracking-widest">Discover more courses</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

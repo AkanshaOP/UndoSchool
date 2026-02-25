@@ -93,7 +93,7 @@ function AppContent() {
             age: '7-12 yrs', time: '45 mins', price: '₹ 199', rating: 4.8, learners: 850,
             tags: [{ name: 'Home works help', color: 'text-blue-500 bg-blue-50 border-blue-200' }, { name: 'Beginner', color: 'text-green-500 bg-green-50 border-green-200' }],
             teacher: 'Sarah Wilson',
-            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=400',
+            image: 'https://images.unsplash.com/photo-1509228468518-180dd482180c?auto=format&fit=crop&q=80&w=400',
             imageHover: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=400'
         },
     ];
